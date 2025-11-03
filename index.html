@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>Malicious Site Warning</title>
+<title>Age Verification</title>
 <style>
   * { box-sizing: border-box; margin: 0; padding: 0; }
   body {
@@ -47,9 +47,9 @@
 <body>
 
 <header>
-  <h1>Malicious Site Warning</h1>
-  <p>This website may harm your system. Proceed at your own risk.</p>
-  <button class="btn" id="maliciousBtn">Proceed Anyway</button>
+  <h1>Age Verification Required</h1>
+  <p>You must be 18 or older to access this content.</p>
+  <button class="btn" id="adultBtn">I am 18 or Older</button>
 </header>
 
 <script>
@@ -61,9 +61,9 @@ function getQueryParam(param) {
 
 const target = getQueryParam('target');
 
-document.getElementById('maliciousBtn').addEventListener('click', () => {
+document.getElementById('adultBtn').addEventListener('click', () => {
   if (target) {
-    ipcRenderer.send('bypass-malicious-warning'); // Save bypass in main
+    ipcRenderer.send('bypass-adult-warning'); // Save bypass in main
     window.location.href = decodeURIComponent(target);
   } else {
     alert("Original URL not found!");
