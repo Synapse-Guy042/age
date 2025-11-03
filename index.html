@@ -32,8 +32,13 @@ function getQueryParam(param) {
 }
 
 function redirect() {
-  const target = getQueryParam('redirect') || 'main.html'; // default fallback
-  window.location.href = target;
+  // Read the original URL from query param "target"
+  const target = getQueryParam('target');
+  if (target) {
+    window.location.href = decodeURIComponent(target);
+  } else {
+    alert("Original URL not found!");
+  }
 }
 </script>
 
